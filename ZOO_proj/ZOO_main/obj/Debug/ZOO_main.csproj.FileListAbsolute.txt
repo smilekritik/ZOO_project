@@ -1,0 +1,13 @@
+D:\work\ZOO_project\ZOO_proj\ZOO_main\bin\Debug\ZOO_main.exe.config
+D:\work\ZOO_project\ZOO_proj\ZOO_main\bin\Debug\ZOO_main.exe
+D:\work\ZOO_project\ZOO_proj\ZOO_main\bin\Debug\ZOO_main.pdb
+D:\work\ZOO_project\ZOO_proj\ZOO_main\bin\Debug\asa-TZ\ZOO_main.resources.dll
+D:\work\ZOO_project\ZOO_proj\ZOO_main\obj\Debug\ZOO_main.csprojAssemblyReference.cache
+D:\work\ZOO_project\ZOO_proj\ZOO_main\obj\Debug\ZOO_main.BuyForm.resources
+D:\work\ZOO_project\ZOO_proj\ZOO_main\obj\Debug\ZOO_main.Properties.Resources.resources
+D:\work\ZOO_project\ZOO_proj\ZOO_main\obj\Debug\ZOO_main.BuyForm.asa-TZ.resources
+D:\work\ZOO_project\ZOO_proj\ZOO_main\obj\Debug\ZOO_main.csproj.GenerateResource.cache
+D:\work\ZOO_project\ZOO_proj\ZOO_main\obj\Debug\ZOO_main.csproj.CoreCompileInputs.cache
+D:\work\ZOO_project\ZOO_proj\ZOO_main\obj\Debug\asa-TZ\ZOO_main.resources.dll
+D:\work\ZOO_project\ZOO_proj\ZOO_main\obj\Debug\ZOO_main.exe
+D:\work\ZOO_project\ZOO_proj\ZOO_main\obj\Debug\ZOO_main.pdb
