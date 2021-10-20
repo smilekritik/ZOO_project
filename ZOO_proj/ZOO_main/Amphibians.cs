@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
-    class Wolfs : Aviary
+    class Amphibians : Aviary
     {
         protected int _count;
 
-        public Wolfs(int count)
+        public Amphibians(int count)
         {
             this._count = count;
         }

@@ -18,7 +18,7 @@ namespace ZOO_main
         }
         public override string GetInfo()
         {
-            return $"name: {_name}, soname: {_soname}";
+            return " " + base.GetInfo() + $"name: {_name}, soname: {_soname}";
         }
         public string GetName()
         {

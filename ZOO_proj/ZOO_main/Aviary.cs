@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
-    class Aviary : Ticket
+    class Aviary
     {
-        Wolfs _wolfs;
+        Amphibians _wolfs;
         public Aviary() 
         {
         }
-        public Aviary(int wolfs)
+        public Aviary(int amphibian)
         {
-            _wolfs = new Wolfs(wolfs);
+            _wolfs = new Amphibians(amphibian);
         }
         public Aviary (Aviary aviary)
         {
@@ -37,10 +37,10 @@ namespace ZOO_main
         {
             return _wolfs.GetWolfs();
         }
-        public override string GetInfo()
+        public virtual string GetInfo()
         {
 
-            return base.GetInfo() + $"Wolfs visiters: {_wolfs.GetInfo()}";
+            return $"Wolfs visiters: {_wolfs.GetCount()}";
 
         }
     }

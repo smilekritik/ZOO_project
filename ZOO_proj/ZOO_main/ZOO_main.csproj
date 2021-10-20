@@ -57,7 +57,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ticket.cs" />
-    <Compile Include="Wolfs.cs" />
+    <Compile Include="Amphibians.cs" />
     <EmbeddedResource Include="BuyForm.asa-TZ.resx">
       <DependentUpon>BuyForm.cs</DependentUpon>
     </EmbeddedResource>
