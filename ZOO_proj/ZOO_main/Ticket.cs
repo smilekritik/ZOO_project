@@ -10,7 +10,7 @@ namespace ZOO_main
     {
         protected int _id;
         protected Person _person;
-        protected List<Aviary> _aviaries= new List<Aviary>(); //список
+        protected List<Aviary> _aviaries;
 
         public Ticket()
         {
@@ -20,6 +20,8 @@ namespace ZOO_main
         {
             _id = 0;
             _person = new Person(name, soname);
+            _aviaries = new List<Aviary>();
+
             Aviary test = new Aviary();
             _aviaries.AddRange(new Aviary[] { test });
         }

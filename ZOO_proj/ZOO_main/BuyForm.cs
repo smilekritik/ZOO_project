@@ -36,8 +36,8 @@ namespace ZOO_main
                     MessageBox.Show("Будь-ласка, оберіть кого хочете відвідувати.");
             }*/
             
-            if (ZooListBox.SelectedIndex.ToString() == "0")
-            {
+            if (ZooListBox.SelectedItems.Count >= 0)
+            { 
                 _aviary = new Aviary(1);
                 _ticket = new Ticket(NameBox.Text, SonameBox.Text, _aviary);
                 //_ticket.GetInfo();

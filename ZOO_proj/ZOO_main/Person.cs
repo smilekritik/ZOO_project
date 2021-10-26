@@ -13,8 +13,24 @@ namespace ZOO_main
 
         public Person(string name, string soname)
         {
-            this._name = name;
-            this._soname = soname;
+            /*try
+            {
+                this._name = name;
+                this._soname = soname;
+            }
+            catch (PersonException exexpt)
+            {
+                Console.WriteLine("Помилка: " + exexpt.Message);
+            }*/
+            if(name == "" || soname == "")
+            {
+                throw new PersonException("Ім'я ті прізвище не повинно містити пусті поля");
+            }
+            else
+            {
+                this._name = name;
+                this._soname = soname;
+            }
         }
         public override string GetInfo()
         {
