@@ -10,9 +10,9 @@ namespace ZOO_main
     {
         protected int _count;
 
-        public Amphibians(int count)
+        public Amphibians()
         {
-            this._count = count;
+            this._count = 1;
         }
 
         public int GetCount()

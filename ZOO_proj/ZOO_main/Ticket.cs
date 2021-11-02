@@ -39,6 +39,10 @@ namespace ZOO_main
             _person.SetSoname(soname);
         }
 
+        public void AddAviary(Aviary toadd)
+        {
+            _aviaries.AddRange(new Aviary[] { toadd });
+        }
         public int GetId()
         {
             return _id;

@@ -12,9 +12,12 @@ namespace ZOO_main
         public Aviary() 
         {
         }
-        public Aviary(int amphibian)
+        public Aviary(string type)
         {
-            _wolfs = new Amphibians(amphibian);
+            if (type == "Земноводні")
+            {
+                _wolfs = new Amphibians();
+            }
         }
         public Aviary (Aviary aviary)
         {

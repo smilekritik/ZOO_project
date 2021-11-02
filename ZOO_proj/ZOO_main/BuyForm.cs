@@ -27,26 +27,27 @@ namespace ZOO_main
         {
             bool anyChoosed = false;
             Aviary _aviary;
-           /* if (BeerCheckBox.Checked == true || FoxCheckBox.Checked == true || LionCheckBox.Checked == true || RiceCheckBox.Checked == true || WolfCheckBox.Checked == true)
+            /* if (BeerCheckBox.Checked == true || FoxCheckBox.Checked == true || LionCheckBox.Checked == true || RiceCheckBox.Checked == true || WolfCheckBox.Checked == true)
+             {
+                 anyChoosed = true;
+             }
+             if (anyChoosed != true)
+             {
+                     MessageBox.Show("Будь-ласка, оберіть кого хочете відвідувати.");
+             }*/
+
+            _ticket = new Ticket(NameBox.Text, SonameBox.Text);
+            if (ZooListBox.CheckedItems.Contains("Земноводні") == true)
             {
-                anyChoosed = true;
-            }
-            if (anyChoosed != true)
-            {
-                    MessageBox.Show("Будь-ласка, оберіть кого хочете відвідувати.");
-            }*/
-            
-            if (ZooListBox.SelectedItems.Count >= 0)
-            { 
-                _aviary = new Aviary(1);
-                _ticket = new Ticket(NameBox.Text, SonameBox.Text, _aviary);
+                _aviary = new Aviary("Земноводні");
+                _ticket.AddAviary(_aviary);
                 //_ticket.GetInfo();
                 //_ticket.GetPerson().GetInfo()
                 MessageBox.Show(_ticket.GetPerson().GetInfo() + "  amphibians");
             }
             else
             {
-                _aviary = new Aviary(0);
+                _aviary = new Aviary("Птиці");
                 _ticket = new Ticket(NameBox.Text, SonameBox.Text, _aviary);
                 //_ticket.GetInfo();
                 //_ticket.GetPerson().GetInfo()
