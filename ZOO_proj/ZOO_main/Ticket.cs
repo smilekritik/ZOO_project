@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
-    class Ticket
+    class Ticket : IComparable<Ticket>
     {
         protected int _id;
         protected Person _person;
         protected List<Aviary> _aviaries;
+        public int CompareTo(Ticket tick)
+        {
+            return this.GetPerson().GetName().CompareTo(tick.GetPerson().GetName());
+        }
 
         public Ticket()
         {

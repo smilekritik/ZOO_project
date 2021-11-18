@@ -8,8 +8,11 @@ namespace ZOO_main
 {
     class PersonException : Exception
     {
-        public PersonException(string message)
-            : base(message)
-        { }
+        public string Name { get; set; }
+        public PersonException(string message, string text)
+                : base(message)
+        {
+            Name = text;
+        }
     }
 }

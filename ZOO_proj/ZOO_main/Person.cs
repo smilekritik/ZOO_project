@@ -22,9 +22,16 @@ namespace ZOO_main
             {
                 Console.WriteLine("Помилка: " + exexpt.Message);
             }*/
+
             if(name == "" || soname == "")
             {
-                throw new PersonException("Ім'я ті прізвище не повинно містити пусті поля");
+                if (name == "") {
+                    throw new PersonException("Ім'я не повинно містити пусті поля", name);
+                }
+                else
+                {
+                    throw new PersonException("Прізвище не повинно містити пусті поля", soname);
+                }
             }
             else
             {

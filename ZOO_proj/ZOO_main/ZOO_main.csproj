@@ -53,6 +53,7 @@
     <Compile Include="BuyForm.Designer.cs">
       <DependentUpon>BuyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonException.cs" />
     <Compile Include="Program.cs" />
