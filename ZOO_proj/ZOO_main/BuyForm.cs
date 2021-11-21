@@ -100,5 +100,10 @@ namespace ZOO_main
         {
 
         }
+
+        private void ZooListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

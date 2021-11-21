@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
-    class Amphibians : Aviary, IRechoosed
+    class Birds : Aviary, IRechoosed
     {
         protected int _count;
-        public void Choose() //неявно
+        void IRechoosed.Choose() //явно
         {
             _count = 1;
         }
-        public Amphibians()
+        public Birds()
         {
             this._count = 1;
         }

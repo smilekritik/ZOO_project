@@ -10,4 +10,8 @@ namespace ZOO_main
     {
         int CompareTo(object o);
     }
+    public interface IRechoosed
+    {
+        void Choose();
+    }
 }

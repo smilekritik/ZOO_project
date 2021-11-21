@@ -33,8 +33,8 @@
             this.SonameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TicketPanel = new System.Windows.Forms.Panel();
-            this.BuyTicketButton = new System.Windows.Forms.Button();
             this.ZooListBox = new System.Windows.Forms.CheckedListBox();
+            this.BuyTicketButton = new System.Windows.Forms.Button();
             this.TicketPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,14 +65,6 @@
             resources.ApplyResources(this.TicketPanel, "TicketPanel");
             this.TicketPanel.Name = "TicketPanel";
             // 
-            // BuyTicketButton
-            // 
-            resources.ApplyResources(this.BuyTicketButton, "BuyTicketButton");
-            this.BuyTicketButton.Name = "BuyTicketButton";
-            this.BuyTicketButton.UseVisualStyleBackColor = true;
-            this.BuyTicketButton.UseWaitCursor = true;
-            this.BuyTicketButton.Click += new System.EventHandler(this.BuyTicketButton_Click);
-            // 
             // ZooListBox
             // 
             this.ZooListBox.FormattingEnabled = true;
@@ -81,6 +73,15 @@
             resources.GetString("ZooListBox.Items1")});
             resources.ApplyResources(this.ZooListBox, "ZooListBox");
             this.ZooListBox.Name = "ZooListBox";
+            this.ZooListBox.SelectedIndexChanged += new System.EventHandler(this.ZooListBox_SelectedIndexChanged);
+            // 
+            // BuyTicketButton
+            // 
+            resources.ApplyResources(this.BuyTicketButton, "BuyTicketButton");
+            this.BuyTicketButton.Name = "BuyTicketButton";
+            this.BuyTicketButton.UseVisualStyleBackColor = true;
+            this.BuyTicketButton.UseWaitCursor = true;
+            this.BuyTicketButton.Click += new System.EventHandler(this.BuyTicketButton_Click);
             // 
             // BuyForm
             // 
