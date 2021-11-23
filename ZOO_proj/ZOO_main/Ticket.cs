@@ -39,8 +39,7 @@ namespace ZOO_main
         public Ticket(string name, string soname)
         {
             _id = 0;
-            _person.SetName(name);
-            _person.SetSoname(soname);
+            _person = new Person(name, soname);
         }
 
         public void AddAviary(Aviary toadd)

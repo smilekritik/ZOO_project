@@ -35,7 +35,7 @@ namespace ZOO_main
              {
                      MessageBox.Show("Будь-ласка, оберіть кого хочете відвідувати.");
              }*/
-
+            
             try
             {
                 _ticket = new Ticket(NameBox.Text, SonameBox.Text);
@@ -44,7 +44,7 @@ namespace ZOO_main
             {
                 MessageBox.Show($"Помилка: {ex.Message}" + $" Ви ввели  { ex.Name }" );
             }
-            
+            finally { }
             
             if (ZooListBox.CheckedItems.Contains("Земноводні") == true)
             {
