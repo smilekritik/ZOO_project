@@ -44,6 +44,7 @@ namespace ZOO_main
 
         public void AddAviary(Aviary toadd)
         {
+            _aviaries = new List<Aviary>();
             _aviaries.AddRange(new Aviary[] { toadd });
         }
         public int GetId()
