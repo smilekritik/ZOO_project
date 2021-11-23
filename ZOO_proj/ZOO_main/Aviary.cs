@@ -9,6 +9,7 @@ namespace ZOO_main
     class Aviary
     {
         Amphibians _wolfs;
+        Birds _bird;
         public Aviary() 
         {
         }
@@ -18,10 +19,19 @@ namespace ZOO_main
             {
                 _wolfs = new Amphibians();
             }
+            else
+            {
+                _bird = new Birds();
+
+                IRechoosed rec;
+                rec = _bird;
+                rec.Choose();
+            }
         }
         public Aviary (Aviary aviary)
         {
             this._wolfs = aviary._wolfs;
+            this._bird = aviary._bird;
         }
 
         public static Aviary operator ++(Aviary aviary)
