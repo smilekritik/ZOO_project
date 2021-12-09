@@ -9,6 +9,7 @@ namespace ZOO_main
     class Amphibians : Aviary, IRechoosed
     {
         protected int _count;
+        protected int _price;
         public void Choose() //неявно
         {
             _count = 1;
@@ -16,8 +17,16 @@ namespace ZOO_main
         public Amphibians()
         {
             this._count = 1;
+            this._price = 50;
         }
-
+        public int GetPrice()
+        {
+            return _price;
+        }
+        public void SetPrice(int price)
+        {
+            this._price = price;
+        }
         public int GetCount()
         {
             return _count;

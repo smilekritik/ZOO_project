@@ -25,17 +25,9 @@ namespace ZOO_main
 
         private void BuyTicketButton_Click(object sender, EventArgs e)
         {
-            //bool anyChoosed = false;
             Aviary _aviary;
-            /* if (BeerCheckBox.Checked == true || FoxCheckBox.Checked == true || LionCheckBox.Checked == true || RiceCheckBox.Checked == true || WolfCheckBox.Checked == true)
-             {
-                 anyChoosed = true;
-             }
-             if (anyChoosed != true)
-             {
-                     MessageBox.Show("Будь-ласка, оберіть кого хочете відвідувати.");
-             }*/
-            
+            //BeerCheckBox.Checked
+
             try
             {
                 _ticket = new Ticket(NameBox.Text, SonameBox.Text);
@@ -58,10 +50,7 @@ namespace ZOO_main
             {
                 _aviary = new Aviary("Птиці");
                 _ticket = new Ticket(NameBox.Text, SonameBox.Text, _aviary);
-                //_ticket.GetInfo();
-                //_ticket.GetPerson().GetInfo()
                 MessageBox.Show(_ticket.GetPerson().GetInfo() + "  birds");
-                //+ _ticket.GetAviary().GetInfo()
             }
 
         }

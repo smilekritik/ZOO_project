@@ -9,6 +9,7 @@ namespace ZOO_main
     class Birds : Aviary, IRechoosed
     {
         protected int _count;
+        protected int _price;
         void IRechoosed.Choose() //явно
         {
             _count = 1;
@@ -16,11 +17,20 @@ namespace ZOO_main
         public Birds()
         {
             this._count = 1;
+            this._price = 30;
         }
 
         public int GetCount()
         {
             return _count;
+        }
+        public int GetPrice()
+        {
+            return _price;
+        }
+        public void SetPrice(int price)
+        {
+            this._price = price;
         }
         public void SetCount(int count)
         {

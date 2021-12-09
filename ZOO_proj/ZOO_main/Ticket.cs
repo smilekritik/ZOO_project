@@ -6,16 +6,24 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
-    class Ticket : IComparable<Ticket>
+    class Ticket : IComparable
     {
         protected int _id;
         protected Person _person;
         protected List<Aviary> _aviaries;
-        public int CompareTo(Ticket tick)
+
+        delegate double Operation(double x, double y);
+
+
+        //public int CompareTo(Ticket tick)
+        //{
+        //    return this.GetPerson().GetName().CompareTo(tick.GetPerson().GetName());
+        //}
+        public int CompareTo(object obj)
         {
+            var tick = (Ticket)obj;
             return this.GetPerson().GetName().CompareTo(tick.GetPerson().GetName());
         }
-
         public Ticket()
         {
         }
@@ -51,7 +59,52 @@ namespace ZOO_main
         {
             return _id;
         }
-        public Person GetPerson() {
+        public double GetKoef(Aviary avs, List<Aviary> aviaries)
+        {
+            double count = 0;
+
+            Operation adds = delegate (double x, double y)
+            {
+            return x + y;
+            };
+
+            Operation adds2 = (x, y) => x + y;
+
+
+            foreach (Aviary av in aviaries)
+            {
+                if (avs.GetType() == av.GetType())
+                {
+                    count = adds(count, av.GetPrice());
+                }
+            }
+            if (count <= 1)
+            {
+                return 1.2;
+            }
+            else if (count <= 3)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0.8;
+            }
+        }
+        public double GetPrice()
+        {
+            double price = 0;
+            Operation del = Add;
+            Operation some = Multiply;
+            foreach (Aviary av in _aviaries)
+            {
+                price = del(price, av.GetPrice());
+                price = some(price, GetKoef(av, _aviaries));
+            }
+            return price;
+        }
+        public Person GetPerson()
+        {
             return _person;
         }
         /*public Aviary GetAviary() {
@@ -60,6 +113,18 @@ namespace ZOO_main
         public virtual string GetInfo()
         {
             return $"id: {_id} ";
+        }
+        private static double Add(double x, double y)
+        {
+            return x + y;
+        }
+        private static double Multiply(double x, double y)
+        {
+            return x * y;
+        }
+        private static double Division(double x, double y)
+        {
+            return x * y;
         }
     }
 }

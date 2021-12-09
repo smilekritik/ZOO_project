@@ -8,6 +8,9 @@ namespace ZOO_main
 {
     class Aviary
     {
+        delegate void PrintMessage(string message);
+        event PrintMessage Notify;
+
         Amphibians _wolfs;
         Birds _bird;
         public Aviary() 
@@ -17,12 +20,13 @@ namespace ZOO_main
         {
             if (type == "Земноводні")
             {
+                if (Notify != null) Notify("Зареестровано на земноводних тварин");
                 _wolfs = new Amphibians();
             }
             else
             {
+                Notify?.Invoke("Зареестровано на птахів");
                 _bird = new Birds();
-
                 IRechoosed rec;
                 rec = _bird;
                 rec.Choose();
@@ -45,7 +49,41 @@ namespace ZOO_main
         {
             _wolfs.SetWolfs(count);
         }
-
+        public int GetPrice()
+        {
+            if (GetType() == "Земноводні")
+            {
+                if (Notify != null) Notify("Зареестровано на земноводних тварин");
+                _wolfs = new Amphibians();
+            }
+            else
+            {
+                if (Notify != null) Notify("Зареестровано на птахів");
+                _bird = new Birds();
+                IRechoosed rec;
+                rec = _bird;
+                rec.Choose();
+            }
+            if (_wolfs != null)
+            {
+                return _wolfs.GetWolfs();
+            }
+            else
+            {
+                return _bird.GetWolfs();
+            }
+        }
+        public string GetType()
+        {
+            if (_wolfs != null)
+            {
+                return "Земноводні";
+            }
+            else
+            {
+                return "Птахи";
+            }
+        }
         public int GetWolfs()
         {
             return _wolfs.GetWolfs();

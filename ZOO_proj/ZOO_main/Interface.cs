@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
-    public interface IComparable
-    {
-        int CompareTo(object o);
-    }
     public interface IRechoosed
     {
         void Choose();

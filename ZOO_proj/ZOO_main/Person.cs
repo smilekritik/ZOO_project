@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
-    class Person : Ticket, IComparable<Person>
+    class Person : Ticket, IComparable
     {
         protected string _name;
         protected string _soname;
-        public int CompareTo(Person tick)
+        public int CompareTo(object obj)
         {
+            var tick = (Person)obj;
             return this.GetName().CompareTo(tick.GetName());
         }
         public Person(string name, string soname)
@@ -25,6 +26,8 @@ namespace ZOO_main
             {
                 Console.WriteLine("Помилка: " + exexpt.Message);
             }*/
+
+
 
             if(name == "" || soname == "")
             {
