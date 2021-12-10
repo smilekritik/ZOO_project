@@ -27,6 +27,12 @@ namespace ZOO_main
         {
             this._price = price;
         }
+
+        public void Feed()
+        {
+            int nothing = 0;
+        }
+
         public int GetCount()
         {
             return _count;

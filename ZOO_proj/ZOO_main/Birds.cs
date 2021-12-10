@@ -28,6 +28,12 @@ namespace ZOO_main
         {
             return _price;
         }
+
+        public void Feed()
+        {
+            int nothing = 0;
+        }
+
         public void SetPrice(int price)
         {
             this._price = price;

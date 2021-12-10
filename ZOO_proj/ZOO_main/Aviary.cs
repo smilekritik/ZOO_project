@@ -11,6 +11,8 @@ namespace ZOO_main
         delegate void PrintMessage(string message);
         event PrintMessage Notify;
 
+        delegate void JustFeed();
+
         Amphibians _wolfs;
         Birds _bird;
         public Aviary() 
@@ -37,7 +39,19 @@ namespace ZOO_main
             this._wolfs = aviary._wolfs;
             this._bird = aviary._bird;
         }
-
+        public void FeedAviary(Aviary aviary)
+        {
+            JustFeed operation;
+            if (GetType() == "Земноводні")
+            {
+                operation = _wolfs.Feed;
+            }
+            else
+            {
+                operation = _bird.Feed;
+            }
+            
+        }
         public static Aviary operator ++(Aviary aviary)
         {
             Aviary new_aviary = new Aviary();
