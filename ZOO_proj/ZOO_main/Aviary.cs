@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ZOO_main
 {
@@ -11,7 +12,9 @@ namespace ZOO_main
         delegate void PrintMessage(string message);
         event PrintMessage Notify;
 
-        delegate void JustFeed();
+        delegate void JustFeed(int f);
+
+        Stack<int> numbers = new Stack<int>();
 
         Amphibians _wolfs;
         Birds _bird;
@@ -20,6 +23,9 @@ namespace ZOO_main
         }
         public Aviary(string type)
         {
+            numbers.Push(1);
+            int get_element = numbers.Pop();
+
             if (type == "Земноводні")
             {
                 if (Notify != null) Notify("Зареестровано на земноводних тварин");
@@ -50,7 +56,7 @@ namespace ZOO_main
             {
                 operation = _bird.Feed;
             }
-            
+            operation(1);
         }
         public static Aviary operator ++(Aviary aviary)
         {

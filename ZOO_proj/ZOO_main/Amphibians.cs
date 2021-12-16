@@ -10,6 +10,9 @@ namespace ZOO_main
     {
         protected int _count;
         protected int _price;
+
+        private Queue<int> _feed = new Queue<int>();
+
         public void Choose() //неявно
         {
             _count = 1;
@@ -28,11 +31,14 @@ namespace ZOO_main
             this._price = price;
         }
 
-        public void Feed()
+        public void Feed(int to_feed)
         {
-            int nothing = 0;
+            _feed.Enqueue(to_feed);
         }
-
+        public int Get_Feed()
+        {
+            return _feed.Dequeue();
+        }
         public int GetCount()
         {
             return _count;

@@ -8,12 +8,13 @@ namespace ZOO_main
 {
     class Ticket : IComparable
     {
-        protected int _id;
         protected Person _person;
         protected List<Aviary> _aviaries;
 
         delegate double Operation(double x, double y);
+        protected HashSet<int> _id = new HashSet<int>();
 
+        SortedList<int, string> workers = new SortedList<int, string>();
 
         //public int CompareTo(Ticket tick)
         //{
@@ -26,27 +27,41 @@ namespace ZOO_main
         }
         public Ticket()
         {
+            Random rnd = new Random();
+            bool check = false;
+            do
+            {
+                int id = rnd.Next();
+                if (!_id.Contains(id))
+                {
+                    check = true;
+                    _id.Add(id);
+                }
+            } while (check == false);
         }
 
         public Ticket(string name, string soname, int wolfs)
         {
-            _id = 0;
             _person = new Person(name, soname);
             _aviaries = new List<Aviary>();
 
             Aviary test = new Aviary();
             _aviaries.AddRange(new Aviary[] { test });
+            workers.Add(4, "Alina");
+            workers.Add(2, "Alina");
+            //foreach (int key in workers.Keys)
+            //{
+            //    Console.WriteLine(key + " = " + workers[key]);
+            //}
         }
         public Ticket(string name, string soname, Aviary aviary)
         {
-            _id = 0;
             _person = new Person(name, soname);
             //_aviary = new Aviary(aviary);
         }
 
         public Ticket(string name, string soname)
         {
-            _id = 0;
             _person = new Person(name, soname);
         }
 
