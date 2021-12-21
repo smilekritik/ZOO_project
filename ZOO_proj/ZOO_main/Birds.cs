@@ -13,10 +13,7 @@ namespace ZOO_main
 
         private Dictionary<int, string> _animals = new Dictionary<int, string>(5);
         private Queue<int> _feed = new Queue<int>();
-
-        HashSet<int> evenNumbers = new HashSet<int>();
-        HashSet<int> oddNumbers = new HashSet<int>();
-
+       
         void IRechoosed.Choose() //явно
         {
             _count = 1;
@@ -28,6 +25,7 @@ namespace ZOO_main
 
             this._animals.Add(1, "Owl");
             this._animals[2] = "Parrot";
+            var a = this._animals[2];
         }
         ~Birds()
         {
@@ -52,6 +50,7 @@ namespace ZOO_main
         }
         public int Get_Feed()
         {
+            var a = _feed.Peek();
             return _feed.Dequeue();
         }
 

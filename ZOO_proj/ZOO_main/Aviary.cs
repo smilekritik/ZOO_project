@@ -24,6 +24,7 @@ namespace ZOO_main
         public Aviary(string type)
         {
             numbers.Push(1);
+            var a = numbers.Peek();
             int get_element = numbers.Pop();
 
             if (type == "Земноводні")

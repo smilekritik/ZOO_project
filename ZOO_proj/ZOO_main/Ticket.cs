@@ -16,6 +16,11 @@ namespace ZOO_main
 
         SortedList<int, string> workers = new SortedList<int, string>();
 
+        All<int> objInt = new All<int>(50);
+        All<int> objInt1 = new All<int>(100);
+        All<double> objDouble = new All<double>(9.88);
+        All<double> objDouble2 = new All<double>(100.88);
+
         //public int CompareTo(Ticket tick)
         //{
         //    return this.GetPerson().GetName().CompareTo(tick.GetPerson().GetName());
@@ -25,8 +30,22 @@ namespace ZOO_main
             var tick = (Ticket)obj;
             return this.GetPerson().GetName().CompareTo(tick.GetPerson().GetName());
         }
+
+        public static void Swap<T>(ref T x, ref T y)
+        {
+            T temp = x;
+            x = y;
+            y = temp;
+        }
+
         public Ticket()
         {
+            objInt.Print("objInt");
+            objDouble.Print("objDouble");
+
+            Swap<All<int>>(ref objInt, ref objInt1);
+            Swap<All<double>>(ref objDouble, ref objDouble2);
+
             Random rnd = new Random();
             bool check = false;
             do
@@ -36,6 +55,13 @@ namespace ZOO_main
                 {
                     check = true;
                     _id.Add(id);
+
+                    var aa = _id.Contains(234);
+
+                    foreach (int value in _id)
+                    {
+                        var a = value;
+                    }
                 }
             } while (check == false);
         }
@@ -69,10 +95,6 @@ namespace ZOO_main
         {
             _aviaries = new List<Aviary>();
             _aviaries.AddRange(new Aviary[] { toadd });
-        }
-        public int GetId()
-        {
-            return _id;
         }
         public double GetKoef(Aviary avs, List<Aviary> aviaries)
         {
