@@ -10,7 +10,6 @@ namespace ZOO_main
     {
         protected T _example;
 
-
         public All(T some)
         {
             _example = some;
