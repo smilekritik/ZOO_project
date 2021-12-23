@@ -21,21 +21,21 @@ namespace ZOO_main
         public Aviary() 
         {
         }
-        public Aviary(string type)
+        public Aviary(string type, decimal count)
         {
             numbers.Push(1);
             var a = numbers.Peek();
             int get_element = numbers.Pop();
 
-            if (type == "Земноводні")
+            if (type == "Земноводних тварин")
             {
                 if (Notify != null) Notify("Зареестровано на земноводних тварин");
-                _wolfs = new Amphibians();
+                _wolfs = new Amphibians(count);
             }
             else
             {
                 Notify?.Invoke("Зареестровано на птахів");
-                _bird = new Birds();
+                _bird = new Birds(count);
                 IRechoosed rec;
                 rec = _bird;
                 rec.Choose();
@@ -49,7 +49,7 @@ namespace ZOO_main
         public void FeedAviary(Aviary aviary)
         {
             JustFeed operation;
-            if (GetType() == "Земноводні")
+            if (GetType() == "Земноводних тварин")
             {
                 operation = _wolfs.Feed;
             }
@@ -72,7 +72,7 @@ namespace ZOO_main
         }
         public int GetPrice()
         {
-            if (GetType() == "Земноводні")
+            if (GetType() == "Земноводних тварин")
             {
                 if (Notify != null) Notify("Зареестровано на земноводних тварин");
                 _wolfs = new Amphibians();
@@ -98,11 +98,11 @@ namespace ZOO_main
         {
             if (_wolfs != null)
             {
-                return "Земноводні";
+                return "Земноводних тварин";
             }
             else
             {
-                return "Птахи";
+                return "Птахів";
             }
         }
         public int GetWolfs()

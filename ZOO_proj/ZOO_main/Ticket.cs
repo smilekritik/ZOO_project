@@ -10,6 +10,7 @@ namespace ZOO_main
     {
         protected Person _person;
         protected List<Aviary> _aviaries;
+        protected DateTime _arr { get; set; } = DateTime.Now;
 
         delegate double Operation(double x, double y);
         protected HashSet<int> _id = new HashSet<int>();
@@ -42,7 +43,6 @@ namespace ZOO_main
         {
             objInt.Print("objInt");
             objDouble.Print("objDouble");
-
             Swap<All<int>>(ref objInt, ref objInt1);
             Swap<All<double>>(ref objDouble, ref objDouble2);
 
@@ -55,7 +55,7 @@ namespace ZOO_main
                 {
                     check = true;
                     _id.Add(id);
-
+                    //_id.Add(id);
                     var aa = _id.Contains(234);
 
                     foreach (int value in _id)
@@ -75,6 +75,7 @@ namespace ZOO_main
             _aviaries.AddRange(new Aviary[] { test });
             workers.Add(4, "Alina");
             workers.Add(2, "Alina");
+            var a = workers[2];
             //foreach (int key in workers.Keys)
             //{
             //    Console.WriteLine(key + " = " + workers[key]);
@@ -86,9 +87,10 @@ namespace ZOO_main
             //_aviary = new Aviary(aviary);
         }
 
-        public Ticket(string name, string soname)
+        public Ticket(string name, string soname, DateTime arr)
         {
             _person = new Person(name, soname);
+            _arr = arr;
         }
 
         public void AddAviary(Aviary toadd)

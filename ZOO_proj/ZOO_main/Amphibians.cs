@@ -8,7 +8,7 @@ namespace ZOO_main
 {
     class Amphibians : Aviary, IRechoosed
     {
-        protected int _count;
+        protected decimal _count;
         protected int _price;
 
         private Queue<int> _feed = new Queue<int>();
@@ -20,6 +20,11 @@ namespace ZOO_main
         public Amphibians()
         {
             this._count = 1;
+            this._price = 50;
+        }
+        public Amphibians(decimal count)
+        {
+            this._count = count;
             this._price = 50;
         }
         public int GetPrice()
@@ -37,6 +42,7 @@ namespace ZOO_main
         }
         public int Get_Feed()
         {
+            var a = _feed.Peek();
             return _feed.Dequeue();
         }
         public int GetCount()
@@ -50,7 +56,7 @@ namespace ZOO_main
 
         public override string GetInfo()
         {
-            return $"Count with wolfs: {_count}";
+            return $"Відвідувань воль'ерів з земноводними тваринами - {_count} ";
         }
     }
 }

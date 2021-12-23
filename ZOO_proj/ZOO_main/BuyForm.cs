@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +14,7 @@ namespace ZOO_main
 {
     public partial class BuyForm : Form
     {
+        List<Ticket> _ticketsAll = new List<Ticket>();
         Ticket _ticket;
         public BuyForm()
         {
@@ -23,14 +26,26 @@ namespace ZOO_main
 
         }
 
+        private void BuyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream("tickets.dat", FileMode.Create))
+            {
+
+                binaryFormatter.Serialize(fs, _ticketsAll);
+
+            }
+
+        }
+
         private void BuyTicketButton_Click(object sender, EventArgs e)
         {
             Aviary _aviary;
             //BeerCheckBox.Checked
-
+            Ticket _tickets = new Ticket();
             try
             {
-                _ticket = new Ticket(NameBox.Text, SonameBox.Text);
+                _ticket = new Ticket(NameBox.Text, SonameBox.Text, dateTimePicker1.Value);
             }
             catch (PersonException ex)
             {
@@ -38,23 +53,26 @@ namespace ZOO_main
             }
             finally { }
             
-            if (ZooListBox.CheckedItems.Contains("Земноводні") == true)
+            if (ZooListBox.CheckedItems.Contains("Земноводних тварин") == true)
             {
-                _aviary = new Aviary("Земноводні");
+                _aviary = new Aviary("Земноводних тварин", numericUpDown1.Value);
                 _ticket.AddAviary(_aviary);
-                //_ticket.GetInfo();
-                //_ticket.GetPerson().GetInfo()
-                MessageBox.Show(_ticket.GetPerson().GetInfo() + "  amphibians");
+                
+            }
+            else if (ZooListBox.CheckedItems.Contains("Птахів") == true)
+            {
+                _aviary = new Aviary("Птахів", numericUpDown1.Value);
+                _ticket.AddAviary(_aviary);
             }
             else
             {
-                _aviary = new Aviary("Птиці");
-                _ticket = new Ticket(NameBox.Text, SonameBox.Text, _aviary);
-                MessageBox.Show(_ticket.GetPerson().GetInfo() + "  birds");
+                MessageBox.Show("Ви повинні обрати хочаб одних тварин!");
             }
-
+            _ticketsAll.Add(_ticket);
+            lbinfo.Text = "";
+            lbinfo.Text = "Ваш квиток: " + _ticket.GetPerson().GetInfo();
         }
-
+       
         private void NameBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -91,6 +109,51 @@ namespace ZOO_main
         }
 
         private void ZooListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NameBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SonameBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ZooListBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BuyTicketButton_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbinfo_Click(object sender, EventArgs e)
         {
 
         }

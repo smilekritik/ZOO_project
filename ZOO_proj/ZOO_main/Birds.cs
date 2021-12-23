@@ -8,7 +8,7 @@ namespace ZOO_main
 {
     class Birds : Aviary, IRechoosed
     {
-        protected int _count;
+        protected decimal _count;
         protected int _price;
 
         private Dictionary<int, string> _animals = new Dictionary<int, string>(5);
@@ -25,7 +25,13 @@ namespace ZOO_main
 
             this._animals.Add(1, "Owl");
             this._animals[2] = "Parrot";
+
             var a = this._animals[2];
+        }
+        public Birds(decimal count)
+        {
+            this._count = count;
+            this._price = 50;
         }
         ~Birds()
         {
@@ -65,7 +71,7 @@ namespace ZOO_main
 
         public override string GetInfo()
         {
-            return $"Count with wolfs: {_count}";
+            return $"Відвідувань воль'ерів з птицями - {_count} ";
         }
     }
 }
