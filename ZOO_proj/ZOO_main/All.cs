@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
+    [Serializable]
     class All<T>
     {
         protected T _example;

@@ -34,7 +34,6 @@ namespace ZOO_main
                 binaryFormatter.Serialize(fs, _ticketsAll);
 
             }
-
         }
 
         private void BuyTicketButton_Click_1(object sender, EventArgs e)
@@ -159,6 +158,31 @@ namespace ZOO_main
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream("tickets.dat", FileMode.Create))
+            {
+
+                binaryFormatter.Serialize(fs, _ticketsAll);
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream("tickets.dat", FileMode.OpenOrCreate))
+            {
+                List<Ticket> deserilizePeople = (List<Ticket>)binaryFormatter.Deserialize(fs);
+                foreach (Ticket t in deserilizePeople)
+                {
+                    lbinfo.Text = "";
+                    lbinfo.Text = "Ваш квиток: " + t.GetPerson().GetInfo() + " " + t.GetAviaryInfo() + "\n";
+                }
+            }
         }
     }
 }
