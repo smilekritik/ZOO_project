@@ -166,7 +166,7 @@ namespace ZOO_main
         }*/
         public virtual string GetInfo()
         {
-            return $"id: {_ids} ";
+            return $"id: {_ids} Дата: {_arr}";
         }
         private static double Add(double x, double y)
         {
