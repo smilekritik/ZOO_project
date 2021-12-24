@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
+    [Serializable]
     class Person : Ticket, IComparable
     {
         protected string _name;
@@ -47,7 +48,7 @@ namespace ZOO_main
         }
         public override string GetInfo()
         {
-            return " " + base.GetInfo() + $"name: {_name}, soname: {_soname}";
+            return " " + base.GetInfo() + $"Ім'я: {_name}, Прізвище: {_soname}";
         }
         public string GetName()
         {

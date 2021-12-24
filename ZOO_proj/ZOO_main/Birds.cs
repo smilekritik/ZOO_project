@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace ZOO_main
 {
+    [Serializable]
     class Birds : Aviary, IRechoosed
     {
         protected decimal _count;
@@ -41,7 +42,7 @@ namespace ZOO_main
             }
             
         }
-        public int GetCount()
+        public decimal GetCount()
         {
             return _count;
         }
@@ -64,7 +65,7 @@ namespace ZOO_main
         {
             this._price = price;
         }
-        public void SetCount(int count)
+        public void SetCount(decimal count)
         {
             this._count = count;
         }

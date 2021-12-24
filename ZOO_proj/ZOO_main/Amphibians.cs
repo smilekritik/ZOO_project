@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
+    [Serializable]
     class Amphibians : Aviary, IRechoosed
     {
         protected decimal _count;
@@ -45,11 +46,11 @@ namespace ZOO_main
             var a = _feed.Peek();
             return _feed.Dequeue();
         }
-        public int GetCount()
+        public decimal GetCount()
         {
             return _count;
         }
-        public void SetCount(int count)
+        public void SetCount(decimal count)
         {
             this._count = count;
         }

@@ -7,9 +7,11 @@ using System.IO;
 
 namespace ZOO_main
 {
+    [Serializable]
     class Aviary
     {
         delegate void PrintMessage(string message);
+        [field: NonSerialized]
         event PrintMessage Notify;
 
         delegate void JustFeed(int f);
@@ -36,9 +38,9 @@ namespace ZOO_main
             {
                 Notify?.Invoke("Зареестровано на птахів");
                 _bird = new Birds(count);
-                IRechoosed rec;
-                rec = _bird;
-                rec.Choose();
+               // IRechoosed rec;
+               // rec = _bird;
+                //rec.Choose();
             }
         }
         public Aviary (Aviary aviary)
@@ -111,9 +113,14 @@ namespace ZOO_main
         }
         public virtual string GetInfo()
         {
-
-            return $"Wolfs visiters: {_wolfs.GetCount()}";
-
+            if (_wolfs != null)
+            {
+                return _wolfs.GetInfo();
+            }
+            else
+            {
+                return _bird.GetInfo();
+            }
         }
     }
 }

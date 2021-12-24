@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace ZOO_main
 {
+    [Serializable]
     class Ticket : IComparable
     {
+        
         protected Person _person;
-        protected List<Aviary> _aviaries;
+        protected List<Aviary> _aviaries = new List<Aviary>();
         protected DateTime _arr { get; set; } = DateTime.Now;
 
         delegate double Operation(double x, double y);
         protected HashSet<int> _id = new HashSet<int>();
-
+        int _ids;
         SortedList<int, string> workers = new SortedList<int, string>();
 
         All<int> objInt = new All<int>(50);
@@ -91,11 +93,12 @@ namespace ZOO_main
         {
             _person = new Person(name, soname);
             _arr = arr;
+            Random rnd = new Random();
+            _ids = rnd.Next();
         }
 
         public void AddAviary(Aviary toadd)
         {
-            _aviaries = new List<Aviary>();
             _aviaries.AddRange(new Aviary[] { toadd });
         }
         public double GetKoef(Aviary avs, List<Aviary> aviaries)
@@ -146,12 +149,24 @@ namespace ZOO_main
         {
             return _person;
         }
+        public string GetAviaryInfo()
+        {
+            string text = "";
+            if (_aviaries != null)
+            {
+                foreach (Aviary av in _aviaries)
+                {
+                    text = text + av.GetInfo();
+                }
+            }
+            return text;
+        }
         /*public Aviary GetAviary() {
             return _aviary;
         }*/
         public virtual string GetInfo()
         {
-            return $"id: {_id} ";
+            return $"id: {_ids} ";
         }
         private static double Add(double x, double y)
         {
